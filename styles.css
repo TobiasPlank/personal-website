@@ -1,5 +1,6 @@
 html {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(30, 30, 30);
     color: rgb(255, 255, 255)
 }
 
@@ -14,21 +15,25 @@ html {
   background-color: white;
   padding: 5px;
 }
+
 .container div {
   background-color: rgb(30, 30, 30);
   padding: 10px;
 }
+
 .container div.header {
   grid-area: header;
   text-align: center;
 }
+
 .container div.menu {
   grid-area: menu;
 }
+
 .container div.content {
   grid-area: content;
 }
+
 .container div.footer {
   grid-area: footer;
-  text-align: center;  
 }
