@@ -32,7 +32,7 @@ const links = [
     <button
         class="theme-toggle"
         type="button"
-        aria-label="Dark mode aktivieren"
+        aria-label="Activate dark mode"
         aria-pressed="false"
     >
     <span class="theme-icon-set theme-icon-set--sun">
@@ -77,8 +77,8 @@ const links = [
     button?.setAttribute(
         "aria-label",
         savedTheme === "dark"
-            ? "Light mode aktivieren"
-            : "Dark mode aktivieren",
+            ? "Activate light mode"
+            : "Activate dark mode",
     );
 
     button?.addEventListener("click", () => {
@@ -92,8 +92,8 @@ const links = [
         button.setAttribute(
             "aria-label",
             nextTheme === "dark"
-                ? "Light mode aktivieren"
-                : "Dark mode aktivieren",
+                ? "Activate light mode"
+                : "Activate dark mode",
         );
     });
 </script>

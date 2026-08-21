@@ -4,7 +4,7 @@ Personal portfolio website for Tobias Plank, built with Astro. The site contains
 
 ## Tech stack
 
-- [Astro](https://astro.build/) 7
+- [Astro 7](https://astro.build/)
 - TypeScript
 - CSS with custom properties for theming
 - [Pixelarticons](https://github.com/halfmage/pixelarticons)
@@ -31,13 +31,13 @@ The site is available at [http://localhost:4321](http://localhost:4321).
 
 Run these commands from the project root:
 
-| Command | Description |
-| --- | --- |
-| `npm install` | Install dependencies |
-| `npm run dev` | Start the development server |
-| `npm run build` | Build the site for production in `dist/` |
-| `npm run preview` | Preview the production build locally |
-| `npm run astro -- --help` | Show Astro CLI help |
+| Command                   | Description                              |
+|---------------------------|------------------------------------------|
+| `npm install`             | Install dependencies                     |
+| `npm run dev`             | Start the development server             |
+| `npm run build`           | Build the site for production in `dist/` |
+| `npm run preview`         | Preview the production build locally     |
+| `npm run astro -- --help` | Show Astro CLI help                      |
 
 ## Project structure
 
@@ -62,7 +62,7 @@ The current routes are:
 
 ## Theme
 
-The site uses dark mode by default. Visitors can switch between dark and light mode with the theme toggle in the navigation. The selected theme is stored in `localStorage` under the `theme` key.
+The site uses dark mode by default. Visitors can switch between dark and light modes with the theme toggle in the navigation. The selected theme is stored in `localStorage` under the `theme` key.
 
 ## License
 
