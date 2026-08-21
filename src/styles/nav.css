@@ -1,13 +1,13 @@
 @import "pixelarticons/fonts/pixelart-icons-font.css";
 
-.base-nav {
+.nav {
     align-items: stretch;
     display: flex;
     position: relative;
     border-bottom: 0;
 }
 
-.base-nav::after {
+.nav::after {
     background: var(--color-line);
     bottom: 0;
     content: "";
@@ -18,7 +18,7 @@
     width: 100vw;
 }
 
-.base-nav__list {
+.nav__list {
     display: flex;
     flex: 0 0 auto;
     list-style: none;
@@ -26,11 +26,11 @@
     padding: 0;
 }
 
-.base-nav__list li {
+.nav__list li {
     flex: 0 0 auto;
 }
 
-.base-nav__list a {
+.nav__list a {
     align-items: center;
     border-right: var(--line);
     display: flex;
@@ -40,8 +40,8 @@
     text-decoration: none;
 }
 
-.base-nav__list a:hover,
-.base-nav__list a:focus-visible {
+.nav__list a:hover,
+.nav__list a:focus-visible {
     background: var(--color-text);
     color: var(--color-surface);
 }
@@ -63,6 +63,7 @@
 }
 
 .theme-icon {
+    --icon-url: none;
     background-color: currentColor;
     display: block;
     height: 1.25rem;

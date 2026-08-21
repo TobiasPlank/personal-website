@@ -1,5 +1,5 @@
 export const baseData = {
-    title: "Tobias Plank Portfolio",
+    title: "Portfolio of Tobias Plank",
     description:
         "Welcome to my portfolio site!",
 };
