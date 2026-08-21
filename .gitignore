@@ -16,6 +16,7 @@ pnpm-debug.log*
 *.json
 *.xml
 *.yaml
+*.mjs
 
 # macOS-specific files
 .DS_Store
