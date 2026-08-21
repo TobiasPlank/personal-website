@@ -1,18 +1,25 @@
-# Ignore all files in content directory but keep folder structure
-content/**/*
-!content/**/
-!content/**/.gitkeep
-
-# Ignore all files in media directory but keep folder structure
-media/*
-!media/.gitkeep
-
-# Keep subdirectories in content
-!content/imprint/
-!content/news/
-!content/personal/
-!content/politics/
-!content/work/
-
-# IDE
+# folders
+.astro/
 .idea/
+dist/
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# file types
+.env
+.env.production
+.json
+.xml
+.yaml
+
+# macOS-specific files
+.DS_Store
+
+# single files
+AGENTS.md
+CLAUDE.md
