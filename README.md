@@ -1,46 +1,71 @@
-# Astro Starter Kit: Basics
+# Tobias Plank Portfolio
+
+Personal portfolio website for Tobias Plank, built with Astro. The site contains an about page, project and blog sections, and the required legal pages.
+
+## Tech stack
+
+- [Astro](https://astro.build/) 7
+- TypeScript
+- CSS with custom properties for theming
+- [Pixelarticons](https://github.com/halfmage/pixelarticons)
+
+## Requirements
+
+- Node.js `22.12.0` or newer
+- npm, pnpm, or another Node.js package manager
+
+## Getting started
+
+Clone the repository, install the dependencies, and start the development server:
 
 ```sh
-pnpm create astro@latest -- --template basics
+git clone <repository-url>
+cd portfolio
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The site is available at [http://localhost:4321](http://localhost:4321).
 
-## 🚀 Project Structure
+## Commands
 
-Inside of your Astro project, you'll see the following folders and files:
+Run these commands from the project root:
+
+| Command | Description |
+| --- | --- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start the development server |
+| `npm run build` | Build the site for production in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run astro -- --help` | Show Astro CLI help |
+
+## Project structure
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+public/                 Static assets and favicon
+src/
+├── components/         Reusable Astro components
+├── data/                Shared site data
+├── layouts/             Page layouts and document head
+├── pages/               Website routes
+└── styles/              Global and component styles
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+The current routes are:
 
-## 🧞 Commands
+- `/` — Home
+- `/about` — About
+- `/projects` — Projects
+- `/blog` — Blog
+- `/imprint` — Imprint
+- `/privacy_policy` — Privacy policy
 
-All commands are run from the root of the project, from a terminal:
+## Theme
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+The site uses dark mode by default. Visitors can switch between dark and light mode with the theme toggle in the navigation. The selected theme is stored in `localStorage` under the `theme` key.
 
-## 👀 Want to learn more?
+## License
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The source code is licensed under the [MIT License](LICENSE).
+
+Personal content, images, branding, and portfolio materials remain © Tobias Plank and may not be reused without permission.
