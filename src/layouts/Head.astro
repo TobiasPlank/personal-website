@@ -7,6 +7,22 @@ const { title = baseData.title, description = baseData.description } = Astro.pro
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <script is:inline>
+        const savedTheme = localStorage.getItem("theme");
+
+        const systemPrefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+        ).matches;
+
+        const initialTheme =
+            savedTheme === "light" || savedTheme === "dark"
+                ? savedTheme
+                : systemPrefersDark
+                    ? "dark"
+                    : "light";
+
+        document.documentElement.dataset.theme = initialTheme;
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>

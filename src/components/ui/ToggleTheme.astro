@@ -48,12 +48,10 @@ import moonSolidIcon from "pixelarticons/svg/moon-solid.svg?url";
         ".theme-toggle",
     );
 
-    const savedTheme =
-        localStorage.getItem("theme") === "light"
+    const currentTheme =
+        document.documentElement.dataset.theme === "light"
             ? "light"
             : "dark";
-
-    document.documentElement.dataset.theme = savedTheme;
 
     const updateButtonState = (theme: string) => {
         button?.setAttribute(
@@ -69,7 +67,7 @@ import moonSolidIcon from "pixelarticons/svg/moon-solid.svg?url";
         );
     };
 
-    updateButtonState(savedTheme);
+    updateButtonState(currentTheme);
 
     button?.addEventListener("click", () => {
         const currentTheme =
