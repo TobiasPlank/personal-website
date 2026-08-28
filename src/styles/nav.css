@@ -1,21 +1,39 @@
-@import "pixelarticons/fonts/pixelart-icons-font.css";
-
 .nav {
-    align-items: stretch;
-    display: flex;
     position: relative;
-    border-bottom: 0;
+    z-index: 2;
+    display: flex;
+    align-items: stretch;
+
+    height: calc(var(--grid-cell) * 6);
+    padding: 0;
+}
+
+.nav::before {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+
+    width: 100vw;
+
+    content: "";
+    background: var(--color-bg);
+    transform: translateX(-50%);
 }
 
 .nav::after {
-    background: var(--color-line);
-    bottom: 0;
-    content: "";
-    height: 1px;
-    left: 50%;
     position: absolute;
-    transform: translateX(-50%);
+    z-index: 3;
+    top: 100%;
+    left: 50%;
+
     width: 100vw;
+    height: 1px;
+
+    content: "";
+    background: var(--color-line);
+    transform: translateX(-50%);
 }
 
 .nav__list {
@@ -31,13 +49,27 @@
 }
 
 .nav__list a {
-    align-items: center;
-    border-right: var(--line);
+    position: relative;
     display: flex;
-    height: 100%;
+    align-items: center;
     justify-content: center;
-    padding: 1rem;
+
+    width: calc(var(--grid-cell) * 12);
+    height: 100%;
+    padding: 0;
+
     text-decoration: none;
+}
+
+.nav__list a::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    width: 1px;
+    pointer-events: none;
+    content: "";
+    background: var(--color-line);
 }
 
 .nav__list a:hover,
@@ -47,19 +79,32 @@
 }
 
 .theme-toggle {
+    position: relative;
     align-items: center;
     background: transparent;
     border: 0;
-    border-left: var(--line);
     color: var(--color-text);
     cursor: pointer;
     display: flex;
     flex: 0 0 auto;
     align-self: stretch;
-    aspect-ratio: 1;
     justify-content: center;
     margin-left: auto;
     padding: 0;
+    width: calc(var(--grid-cell) * 6);
+    height: 100%;
+    aspect-ratio: auto;
+}
+
+.theme-toggle::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    pointer-events: none;
+    content: "";
+    background: var(--color-line);
 }
 
 .theme-icon {
