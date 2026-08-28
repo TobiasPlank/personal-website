@@ -6,6 +6,7 @@ import linuxIcon from "pixelarticons/svg/linux.svg?url";
 import virtualizationIcon from "pixelarticons/svg/box-stack.svg?url";
 import codeIcon from "pixelarticons/svg/file-big-code.svg?url";
 
+// Keep icon imports static so Astro can bundle the SVG assets.
 const heroIcons = {
     "server-3": serverIcon,
     "linux": linuxIcon,
@@ -13,6 +14,7 @@ const heroIcons = {
     "file-big-code": codeIcon,
 };
 
+// Add or reorder animated labels here. Each label can define its own theme colors.
 const heroSequences = [
     {
         text: "HCI ",
@@ -93,6 +95,7 @@ const heroSequences = [
 
     let isHeroVisible = false;
     let isAnimationRunning = false;
+    // AbortController cancels delays and typing when the hero leaves the viewport.
     let animationController = null;
     let activeSequence = heroSequences[0];
 
@@ -202,7 +205,7 @@ const heroSequences = [
             return;
         }
 
-        // Ein kompletter Durchlauf durch das Array
+        // Process one complete sequence cycle.
         for (const sequence of heroSequences) {
             if (signal.aborted) {
                 return;
@@ -245,8 +248,7 @@ const heroSequences = [
             }
         }
 
-        // Kein while(true):
-        // Nach einem Durchlauf wird nur bei sichtbarem Hero neu gestartet.
+        // Restart only while the hero remains visible.
         if (!signal.aborted && isHeroVisible) {
             await runAnimation(signal);
         }
@@ -257,13 +259,19 @@ const heroSequences = [
             return;
         }
 
+        const controller = new AbortController();
+
         isAnimationRunning = true;
-        animationController = new AbortController();
+        animationController = controller;
 
         hero.classList.add("hero--glow-active");
 
-        void runAnimation(animationController.signal).finally(() => {
-            isAnimationRunning = false;
+        void runAnimation(controller.signal).finally(() => {
+            // Do not let an old animation overwrite the state of a newer one.
+            if (animationController === controller) {
+                animationController = null;
+                isAnimationRunning = false;
+            }
         });
     };
 
@@ -282,6 +290,7 @@ const heroSequences = [
         hero.classList.remove("hero--glow-active");
     };
 
+    // Pause all animation work while the hero is outside the viewport.
     const observer = new IntersectionObserver(
         ([entry]) => {
             isHeroVisible = entry.isIntersecting;

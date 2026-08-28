@@ -5,7 +5,6 @@
     --color-muted: rgb(111 111 111);
     --color-accent: rgb(255 92 53);
     --color-line: rgb(60 60 60);
-    --line: 1px solid var(--color-line);
 
     --grid-cell: 0.5rem;
     --grid-half-cell: 0.25rem;

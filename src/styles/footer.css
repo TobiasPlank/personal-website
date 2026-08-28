@@ -58,18 +58,9 @@
     margin-top: 0.5rem;
 }
 
-.footer__heart {
+.footer__icon {
     --icon-url: none;
-    background-color: currentColor;
-    display: inline-block;
-    height: 1rem;
-    mask: var(--icon-url) center / contain no-repeat;
-    width: 1rem;
-    -webkit-mask: var(--icon-url) center / contain no-repeat;
-}
 
-.footer__copyright_icon {
-    --icon-url: none;
     background-color: currentColor;
     display: inline-block;
     height: 1rem;
