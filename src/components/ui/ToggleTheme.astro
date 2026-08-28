@@ -1,0 +1,90 @@
+---
+import "@/styles/nav.css";
+
+import sunIcon from "pixelarticons/svg/sun.svg?url";
+import sunSolidIcon from "pixelarticons/svg/sun-solid.svg?url";
+
+import moonIcon from "pixelarticons/svg/moon.svg?url";
+import moonSolidIcon from "pixelarticons/svg/moon-solid.svg?url";
+---
+
+<button
+        class="theme-toggle"
+        type="button"
+        aria-label="Activate dark mode"
+        aria-pressed="false"
+>
+    <span class="theme-icon-set theme-icon-set--sun">
+        <span
+                class="theme-icon theme-icon--regular"
+                style={`--icon-url: url("${sunIcon}")`}
+                aria-hidden="true"
+        ></span>
+
+        <span
+                class="theme-icon theme-icon--solid"
+                style={`--icon-url: url("${sunSolidIcon}")`}
+                aria-hidden="true"
+        ></span>
+    </span>
+
+    <span class="theme-icon-set theme-icon-set--moon">
+        <span
+                class="theme-icon theme-icon--regular"
+                style={`--icon-url: url("${moonIcon}")`}
+                aria-hidden="true"
+        ></span>
+
+        <span
+                class="theme-icon theme-icon--solid"
+                style={`--icon-url: url("${moonSolidIcon}")`}
+                aria-hidden="true"
+        ></span>
+    </span>
+</button>
+
+<script>
+    const button = document.querySelector<HTMLButtonElement>(
+        ".theme-toggle",
+    );
+
+    const savedTheme =
+        localStorage.getItem("theme") === "light"
+            ? "light"
+            : "dark";
+
+    document.documentElement.dataset.theme = savedTheme;
+
+    const updateButtonState = (theme: string) => {
+        button?.setAttribute(
+            "aria-pressed",
+            String(theme === "dark"),
+        );
+
+        button?.setAttribute(
+            "aria-label",
+            theme === "dark"
+                ? "Activate light mode"
+                : "Activate dark mode",
+        );
+    };
+
+    updateButtonState(savedTheme);
+
+    button?.addEventListener("click", () => {
+        const currentTheme =
+            document.documentElement.dataset.theme === "dark"
+                ? "dark"
+                : "light";
+
+        const nextTheme =
+            currentTheme === "dark"
+                ? "light"
+                : "dark";
+
+        document.documentElement.dataset.theme = nextTheme;
+        localStorage.setItem("theme", nextTheme);
+
+        updateButtonState(nextTheme);
+    });
+</script>
