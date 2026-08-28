@@ -1,11 +1,7 @@
 ---
-import "@/styles/nav.css";
+import "@/styles/ui/toggle_theme.css";
 
-import sunIcon from "pixelarticons/svg/sun.svg?url";
-import sunSolidIcon from "pixelarticons/svg/sun-solid.svg?url";
-
-import moonIcon from "pixelarticons/svg/moon.svg?url";
-import moonSolidIcon from "pixelarticons/svg/moon-solid.svg?url";
+import ToggleTheme from "@/components/ui/ToggleTheme.astro";
 
 const links = [
     { label: "Home", href: "/"},
@@ -29,71 +25,5 @@ const links = [
         }
     </ul>
 
-    <button
-        class="theme-toggle"
-        type="button"
-        aria-label="Activate dark mode"
-        aria-pressed="false"
-    >
-    <span class="theme-icon-set theme-icon-set--sun">
-        <span
-            class="theme-icon theme-icon--regular"
-            style={`--icon-url: url("${sunIcon}")`}
-            aria-hidden="true"
-        ></span>
-
-        <span
-            class="theme-icon theme-icon--solid"
-            style={`--icon-url: url("${sunSolidIcon}")`}
-            aria-hidden="true"
-        ></span>
-    </span>
-
-        <span class="theme-icon-set theme-icon-set--moon">
-        <span
-            class="theme-icon theme-icon--regular"
-            style={`--icon-url: url("${moonIcon}")`}
-            aria-hidden="true"
-        ></span>
-
-        <span
-            class="theme-icon theme-icon--solid"
-            style={`--icon-url: url("${moonSolidIcon}")`}
-            aria-hidden="true"
-        ></span>
-    </span>
-    </button>
+    <ToggleTheme />
 </nav>
-
-<script>
-    const button = document.querySelector<HTMLButtonElement>(".theme-toggle");
-
-    const savedTheme =
-        localStorage.getItem("theme") === "light" ? "light" : "dark";
-
-    document.documentElement.dataset.theme = savedTheme;
-
-    button?.setAttribute("aria-pressed", String(savedTheme === "dark"));
-    button?.setAttribute(
-        "aria-label",
-        savedTheme === "dark"
-            ? "Activate light mode"
-            : "Activate dark mode",
-    );
-
-    button?.addEventListener("click", () => {
-        const isDark = document.documentElement.dataset.theme === "dark";
-        const nextTheme = isDark ? "light" : "dark";
-
-        document.documentElement.dataset.theme = nextTheme;
-        localStorage.setItem("theme", nextTheme);
-
-        button.setAttribute("aria-pressed", String(nextTheme === "dark"));
-        button.setAttribute(
-            "aria-label",
-            nextTheme === "dark"
-                ? "Activate light mode"
-                : "Activate dark mode",
-        );
-    });
-</script>
