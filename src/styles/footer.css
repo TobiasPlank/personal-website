@@ -1,21 +1,16 @@
-@import "pixelarticons/fonts/pixelart-icons-font.css";
-
-@font-face {
-    font-family: "Departure Mono";
-    src:
-        url("/public/fonts/DepartureMono.woff2") format("woff2"),
-        url("/public/fonts/DepartureMono.woff") format("woff"),
-        url("/public/fonts/DepartureMono.otf") format("opentype");
-    font-display: swap;
-    font-style: normal;
-    font-weight: 400;
-}
-
 .footer {
-    text-align: center;
-    margin-inline: auto;
-    padding: 1rem;
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: calc(var(--grid-cell) * 10);
+    padding: 1rem;
+
+    text-align: center;
 }
 
 .footer::before {
