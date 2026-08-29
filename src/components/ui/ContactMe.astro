@@ -1,0 +1,119 @@
+---
+import "@/styles/ui/contact_me.css";
+
+import chevronDownIcon from "pixelarticons/svg/chevron-down.svg?url";
+import chevronUpIcon from "pixelarticons/svg/chevron-up.svg?url";
+import chevronRightIcon from "pixelarticons/svg/chevron-right.svg?url";
+
+import mailIcon from "pixelarticons/svg/mail-solid.svg?url";
+import linkedinIcon from "pixelarticons/svg/linkedin-2-solid.svg?url";
+import githubIcon from "pixelarticons/svg/github-solid.svg?url";
+import discordIcon from "pixelarticons/svg/discord-solid.svg?url";
+import mastodonIcon from "pixelarticons/svg/mastodon-solid.svg?url";
+
+const contactLinks = [
+    {
+        label: "Mail",
+        href: "mailto:info@tobias-plank.de",
+        icon: mailIcon,
+        darkColor: "rgb(251 251 248)",
+        lightColor: "rgb(36 36 36)",
+        external: false,
+    },
+    {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/planktobias",
+        icon: linkedinIcon,
+        darkColor: "rgb(251 251 248)",
+        lightColor: "rgb(36 36 36)",
+        external: true,
+    },
+    {
+        label: "GitHub",
+        href: "https://github.com/tobiasplank",
+        icon: githubIcon,
+        darkColor: "rgb(251 251 248)",
+        lightColor: "rgb(36 36 36)",
+        external: true,
+    },
+    {
+        label: "Discord",
+        href: "https://discordapp.com/users/520244930191425566",
+        icon: discordIcon,
+        darkColor: "rgb(251 251 248)",
+        lightColor: "rgb(36 36 36)",
+        external: true,
+    },
+    {
+        label: "Mastodon",
+        href: "https://mastodon.social/@tobiasplank",
+        icon: mastodonIcon,
+        darkColor: "rgb(251 251 248)",
+        lightColor: "rgb(36 36 36)",
+        external: true
+    },
+];
+---
+
+<div class="contact-me">
+    <button class="contact-me__trigger" type="button">
+        <span>Contact me</span>
+
+        <span
+                class="contact-me__chevron contact-me__chevron--down"
+                style={`--icon-url: url("${chevronDownIcon}")`}
+                aria-hidden="true"
+        ></span>
+
+        <span
+                class="contact-me__chevron contact-me__chevron--up"
+                style={`--icon-url: url("${chevronUpIcon}")`}
+                aria-hidden="true"
+        ></span>
+    </button>
+
+    <div class="contact-me__menu">
+        <ul class="contact-me__list">
+            {
+                contactLinks.map((link) => (
+                        <li
+                                class="contact-me__item"
+                                style={`
+                            --icon-color-dark: ${link.darkColor};
+                            --icon-color-light: ${link.lightColor};
+                        `}
+                        >
+                            <a
+                                    href={link.href}
+                                    class="contact-me__link"
+                                    target={link.external ? "_blank" : undefined}
+                                    rel={link.external ? "noopener noreferrer" : undefined}
+                            >
+                            <span
+                                    class="contact-me__social-icon"
+                                    style={`--icon-url: url("${link.icon}")`}
+                                    aria-hidden="true"
+                            ></span>
+
+                                <span class="contact-me__label">
+                                {link.label}
+                            </span>
+
+                                <span
+                                        class="contact-me__item-chevron contact-me__item-chevron--left"
+                                        style={`--icon-url: url("${chevronRightIcon}")`}
+                                        aria-hidden="true"
+                                ></span>
+
+                                <span
+                                        class="contact-me__item-chevron contact-me__item-chevron--right"
+                                        style={`--icon-url: url("${chevronRightIcon}")`}
+                                        aria-hidden="true"
+                                ></span>
+                            </a>
+                        </li>
+                ))
+            }
+        </ul>
+    </div>
+</div>

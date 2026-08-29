@@ -70,6 +70,30 @@ Theme initialization happens in the document head to avoid a flash of the wrong 
 
 The `ToggleTheme` component owns the button and persistence logic. The Hero component observes changes to `data-theme` and updates the active label color and icon automatically.
 
+## Navigation controls
+
+The navigation contains two reusable UI components:
+
+- `src/components/ui/ToggleTheme.astro` switches between light and dark mode and stores the selected theme in `localStorage`.
+- `src/components/ui/ContactMe.astro` renders the hover- and focus-based contact menu.
+
+The Contact Me links are configured in the `contactLinks` array inside the component. Each entry contains:
+
+```yaml
+{
+    label: "GitHub",
+    href: "https://github.com/tobiasplank",
+    icon: githubIcon,
+    darkColor: "rgb(251 251 248)",
+    lightColor: "rgb(36 36 36)",
+    external: true,
+}
+```
+
+`darkColor` and `lightColor` define the icon color for each theme. Set `external` to `true` for web links that should open in a new tab. External links receive `target="_blank"` and `rel="noopener noreferrer"`; email links should use `external: false` and a `mailto:` URL.
+
+The component styles are kept separately in `src/styles/ui/contact_me.css` and `src/styles/ui/toggle_theme.css`. The Contact Me menu opens when the component is hovered or focused, while individual links use the CSS `:has()` selector to move the inverted visual treatment from the trigger to the active menu item.
+
 ## Hero animation
 
 Animated labels are configured in `src/components/Hero.astro`. Each sequence contains its text, icon, accessible label, and separate light/dark colors:

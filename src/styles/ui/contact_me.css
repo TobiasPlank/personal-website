@@ -1,0 +1,231 @@
+.contact-me {
+    position: relative;
+    flex: 0 0 auto;
+    height: 100%;
+    color: var(--color-text);
+}
+
+.contact-me__trigger {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: var(--grid-cell);
+
+    height: 100%;
+    padding-inline: calc(var(--grid-cell) * 2);
+
+    border: 0;
+    color: var(--color-bg);
+    background: var(--color-text);
+    cursor: pointer;
+    font: inherit;
+    white-space: nowrap;
+
+    transition:
+            color 180ms ease,
+            background-color 180ms ease;
+}
+
+/* Background stays inverted on hover. */
+.contact-me:hover .contact-me__trigger,
+.contact-me:focus-within .contact-me__trigger {
+    color: var(--color-bg);
+    background: var(--color-text);
+}
+
+/* Background changes to normal if contact-link is hovered. */
+.contact-me:has(.contact-me__link:hover) .contact-me__trigger,
+.contact-me:has(.contact-me__link:focus-visible) .contact-me__trigger {
+    color: var(--color-text);
+    background: var(--color-bg);
+}
+
+.contact-me__chevron,
+.contact-me__social-icon,
+.contact-me__item-chevron {
+    display: block;
+    flex: 0 0 auto;
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    background-color: currentColor;
+    mask-image: var(--icon-url);
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+
+    -webkit-mask-image: var(--icon-url);
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+}
+
+.contact-me__chevron {
+    transition:
+            opacity 150ms ease,
+            transform 250ms ease;
+}
+
+.contact-me__chevron--up {
+    position: absolute;
+    top: 50%;
+    right: calc(var(--grid-cell) * 2);
+
+    opacity: 0;
+    transform: translateY(calc(-50% + 0.3rem));
+}
+
+.contact-me:hover .contact-me__chevron--down,
+.contact-me:focus-within .contact-me__chevron--down {
+    opacity: 0;
+    transform: translateY(-0.3rem);
+}
+
+.contact-me:hover .contact-me__chevron--up,
+.contact-me:focus-within .contact-me__chevron--up {
+    opacity: 1;
+    transform: translateY(-50%);
+}
+
+.contact-me__menu {
+    position: absolute;
+    z-index: 5;
+    top: 100%;
+    right: -1px;
+
+    min-width: 12.5rem;
+
+    border: 1px solid var(--color-line);
+    background: var(--color-bg);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.5rem);
+    visibility: hidden;
+
+    transition:
+            opacity 180ms ease,
+            transform 180ms ease,
+            visibility 180ms ease;
+}
+
+.contact-me:hover .contact-me__menu,
+.contact-me:focus-within .contact-me__menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.contact-me__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.contact-me__item {
+    border-bottom: 1px solid var(--color-line);
+}
+
+.contact-me__item:last-child {
+    border-bottom: 0;
+}
+
+.contact-me__link {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1.5rem 1fr 1.5rem;
+    align-items: center;
+    gap: var(--grid-cell);
+
+    min-height: calc(var(--grid-cell) * 7);
+    padding: 0 calc(var(--grid-cell) * 2);
+
+    color: var(--color-text);
+    text-decoration: none;
+
+    transition:
+            color 120ms ease,
+            background-color 120ms ease,
+            padding-left 180ms ease;
+}
+
+.contact-me__social-icon {
+    color: var(--icon-color-dark);
+
+    transition:
+            color 180ms ease,
+            transform 180ms ease;
+}
+
+[data-theme="light"] .contact-me__social-icon {
+    color: var(--icon-color-light);
+}
+
+.contact-me__item-chevron {
+    color: currentColor;
+
+    transition:
+            color 180ms ease,
+            opacity 180ms ease,
+            transform 180ms ease;
+}
+
+.contact-me__item-chevron--left {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: calc(var(--grid-cell) * 1.5);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-0.75rem, -50%);
+}
+
+.contact-me__item-chevron--right {
+    justify-self: end;
+}
+
+.contact-me__link:hover,
+.contact-me__link:focus-visible {
+    padding-left: calc(var(--grid-cell) * 5);
+
+    color: var(--color-surface);
+    background: var(--color-text);
+}
+
+.contact-me__link:hover .contact-me__social-icon,
+.contact-me__link:focus-visible .contact-me__social-icon {
+    color: var(--color-surface);
+    transform: translateX(0.5rem);
+}
+
+.contact-me__link:hover .contact-me__item-chevron,
+.contact-me__link:focus-visible .contact-me__item-chevron {
+    color: var(--color-surface);
+}
+
+.contact-me__link:hover .contact-me__item-chevron--left,
+.contact-me__link:focus-visible .contact-me__item-chevron--left {
+    opacity: 1;
+    transform: translate(0, -50%);
+}
+
+.contact-me__link:hover .contact-me__item-chevron--right,
+.contact-me__link:focus-visible .contact-me__item-chevron--right {
+    opacity: 0;
+    transform: translateX(0.75rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-me__chevron,
+    .contact-me__menu,
+    .contact-me__link,
+    .contact-me__social-icon,
+    .contact-me__item-chevron {
+        transition: none;
+    }
+}
