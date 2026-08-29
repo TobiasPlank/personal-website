@@ -67,7 +67,7 @@
     opacity: 0;
     transform: scaleY(0.18);
     transform-origin: 50% 0;
-    will-change: transform, opacity;
+    will-change: opacity, transform;
 }
 
 .hero--glow-active .hero__glow::before {
@@ -107,19 +107,17 @@
 .hero__dynamic-icon {
     font-family: "Departure Mono", monospace;
     color: var(--hero-sequence-color, currentColor);
-    word-spacing: -0.5em;
+    word-spacing: -0.3em;
 }
 
 .hero__dynamic-icon {
     --icon-url: none;
-
 
     display: inline-block;
     width: 0;
     height: 1em;
     margin-left: 0;
     vertical-align: -0.12em;
-
 
     background-color: currentColor;
     mask: var(--icon-url) center / contain no-repeat;
@@ -203,10 +201,7 @@
         transform: scaleY(1);
     }
 
-    .hero--glow-active .hero__glow::before {
-        animation: none;
-    }
-
+    .hero--glow-active .hero__glow::before,
     .hero--glow-active > h1 {
         animation: none;
     }
