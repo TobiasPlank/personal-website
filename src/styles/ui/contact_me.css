@@ -156,9 +156,7 @@
 .contact-me__social-icon {
     color: var(--icon-color-dark);
 
-    transition:
-            color 180ms ease,
-            transform 180ms ease;
+    transition: color 180ms ease;
 }
 
 [data-theme="light"] .contact-me__social-icon {
@@ -200,7 +198,6 @@
 .contact-me__link:hover .contact-me__social-icon,
 .contact-me__link:focus-visible .contact-me__social-icon {
     color: var(--color-surface);
-    transform: translateX(0.5rem);
 }
 
 .contact-me__link:hover .contact-me__item-chevron,
