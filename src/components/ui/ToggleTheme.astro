@@ -44,16 +44,19 @@ import moonSolidIcon from "pixelarticons/svg/moon-solid.svg?url";
 </button>
 
 <script>
+    type Theme = "light" | "dark";
+
     const button = document.querySelector<HTMLButtonElement>(
         ".theme-toggle",
     );
 
-    const currentTheme =
-        document.documentElement.dataset.theme === "light"
+    const getCurrentTheme = (): Theme => {
+        return document.documentElement.dataset.theme === "light"
             ? "light"
             : "dark";
+    };
 
-    const updateButtonState = (theme: string) => {
+    const updateButtonState = (theme: Theme) => {
         button?.setAttribute(
             "aria-pressed",
             String(theme === "dark"),
@@ -67,16 +70,11 @@ import moonSolidIcon from "pixelarticons/svg/moon-solid.svg?url";
         );
     };
 
-    updateButtonState(currentTheme);
+    updateButtonState(getCurrentTheme());
 
     button?.addEventListener("click", () => {
-        const currentTheme =
-            document.documentElement.dataset.theme === "dark"
-                ? "dark"
-                : "light";
-
-        const nextTheme =
-            currentTheme === "dark"
+        const nextTheme: Theme =
+            getCurrentTheme() === "dark"
                 ? "light"
                 : "dark";
 
