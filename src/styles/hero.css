@@ -38,7 +38,7 @@
 }
 
 .hero--glow-active > h1 {
-    animation: hero-title-in 2.4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    animation: hero-title-in 2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
 .hero__glow {
@@ -71,7 +71,7 @@
 }
 
 .hero--glow-active .hero__glow::before {
-    animation: hero-glow-in 2.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    animation: hero-glow-in 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
 .hero::after {
@@ -150,7 +150,7 @@
     vertical-align: -0.12em;
     background-color: currentColor;
 
-    animation: hero-cursor-blink 550ms steps(1, end) infinite;
+    animation: hero-cursor-blink 600ms steps(1, end) infinite;
 }
 
 @keyframes hero-glow-in {
