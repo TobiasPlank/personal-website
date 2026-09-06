@@ -1,6 +1,8 @@
 ---
 import "@/styles/hero.css";
 
+import Heading from "@/components/ui/Heading.astro";
+
 import serverIcon from "pixelarticons/svg/server-3.svg?url";
 import linuxIcon from "pixelarticons/svg/linux.svg?url";
 import virtualizationIcon from "pixelarticons/svg/box-stack.svg?url";
@@ -59,7 +61,7 @@ const heroSequences = [
 <div class="hero">
     <div class="hero__glow" aria-hidden="true"></div>
 
-    <h1>
+    <Heading tagName="h1" tagSize="h1">
         <span class="hero__static-text">
             Hey there! I'm Tobi, <br> a system engineer for
         </span>
@@ -81,7 +83,7 @@ const heroSequences = [
                     aria-hidden="true"
             ></span>
         </span>
-    </h1>
+    </Heading>
 </div>
 
 <script define:vars={{ heroSequences, heroIcons }}>
