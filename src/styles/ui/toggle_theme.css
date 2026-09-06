@@ -72,19 +72,27 @@
     display: none;
 }
 
-.theme-toggle:hover,
-.theme-toggle:focus-visible {
+.theme-toggle:focus {
+    outline: none;
+}
+
+.theme-toggle:hover {
     color: var(--color-surface);
     background: var(--color-text);
 }
 
-.theme-toggle:hover .theme-icon--regular,
-.theme-toggle:focus-visible .theme-icon--regular {
+.theme-toggle:focus-visible {
+    outline: none;
+    box-shadow:
+            inset 0 0 0 2px var(--color-accent),
+            inset 0 0 0 4px var(--color-bg);
+}
+
+.theme-toggle:hover .theme-icon--regular {
     display: none;
 }
 
-.theme-toggle:hover .theme-icon--solid,
-.theme-toggle:focus-visible .theme-icon--solid {
+.theme-toggle:hover .theme-icon--solid {
     display: block;
 }
 

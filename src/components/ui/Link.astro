@@ -1,0 +1,163 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
+    href: string;
+    variant?: "primary" | "secondary" | "ghost" | "icon" | "nav";
+}
+
+const {
+    href,
+    variant = "primary",
+    class: className,
+    ...rest
+} = Astro.props;
+---
+
+<a
+        href={href}
+        class:list={[
+            "link",
+            `link--${variant}`,
+            className,
+        ]}
+        {...rest}
+>
+    <slot />
+</a>
+
+<style>
+    .link {
+        position: relative;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--grid-cell);
+
+        min-height: calc(var(--grid-cell) * 6);
+        padding: 0 calc(var(--grid-cell) * 2);
+
+        color: var(--color-text);
+        font: inherit;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+
+        transition:
+                color 160ms ease,
+                background-color 160ms ease,
+                border-color 160ms ease,
+                padding-left 180ms ease;
+    }
+
+    .link--primary {
+        color: var(--color-bg);
+        background: var(--color-text);
+        border: 1px solid var(--color-text);
+    }
+
+    .link--primary:hover {
+        color: var(--color-text);
+        background: var(--color-bg);
+        border-color: var(--color-text);
+    }
+
+    .link--secondary {
+        color: var(--color-text);
+        background: transparent;
+        border: 1px solid var(--color-line);
+    }
+
+    .link--secondary:hover {
+        color: var(--color-surface);
+        background: var(--color-text);
+        border-color: var(--color-text);
+    }
+
+    .link--ghost {
+        min-height: auto;
+        padding: var(--grid-half-cell) var(--grid-cell);
+
+        color: var(--color-text);
+        background: transparent;
+        border: 0;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.25em;
+    }
+
+    .link--ghost:hover {
+        color: var(--color-accent);
+        background: transparent;
+    }
+
+    .link--ghost:focus-visible {
+        box-shadow: none;
+        outline: 2px solid var(--color-accent);
+        outline-offset: 2px;
+    }
+
+    .link--icon {
+        width: calc(var(--grid-cell) * 6);
+        height: calc(var(--grid-cell) * 6);
+        min-height: 0;
+        padding: 0;
+
+        color: var(--color-text);
+        background: transparent;
+        border: 1px solid var(--color-line);
+    }
+
+    .link--icon:hover {
+        color: var(--color-surface);
+        background: var(--color-text);
+        border-color: var(--color-text);
+    }
+
+    .link--nav {
+        width: calc(var(--grid-cell) * 12);
+        height: 100%;
+        min-height: 0;
+        padding: 0;
+
+        color: var(--color-text);
+        background: transparent;
+        border: 0;
+    }
+
+    .link--nav::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 100%;
+
+        width: 1px;
+
+        pointer-events: none;
+        content: "";
+        background: var(--color-line);
+    }
+
+    .link--nav:hover {
+        color: var(--color-surface);
+        background: var(--color-text);
+    }
+
+    .link:focus {
+        outline: none;
+    }
+
+    .link:focus-visible {
+        outline: none;
+        box-shadow:
+                inset 0 0 0 2px var(--color-accent),
+                inset 0 0 0 4px var(--color-bg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .link {
+            transition: none;
+        }
+    }
+</style>

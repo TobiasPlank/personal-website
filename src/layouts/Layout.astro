@@ -12,12 +12,12 @@ import "@/styles/global.css";
 <html lang="en">
 <Head {...Astro.props} />
 <body>
-  <div class="site-shell">
-    <Nav />
-    <main class="site-main">
-      <slot />
-    </main>
-  </div>
+<div class="site-shell">
+  <Nav />
+  <main class="site-main">
+    <slot />
+  </main>
+  <Footer />
+</div>
 </body>
-<Footer />
 </html>

@@ -27,14 +27,26 @@
             background-color 180ms ease;
 }
 
+.contact-me__trigger:focus {
+    outline: none;
+}
+
+.contact-me__trigger:focus-visible {
+    outline: none;
+    color: var(--color-text);
+    background: var(--color-bg);
+    box-shadow:
+            inset 0 0 0 2px var(--color-accent),
+            inset 0 0 0 4px var(--color-bg);
+}
+
 /* Background stays inverted on hover. */
-.contact-me:hover .contact-me__trigger,
-.contact-me:focus-within .contact-me__trigger {
+.contact-me:hover .contact-me__trigger {
     color: var(--color-bg);
     background: var(--color-text);
 }
 
-/* Background changes to normal if contact-link is hovered. */
+/* Background changes to normal if contact-link is hovered or focused. */
 .contact-me:has(.contact-me__link:hover) .contact-me__trigger,
 .contact-me:has(.contact-me__link:focus-visible) .contact-me__trigger {
     color: var(--color-text);
@@ -190,18 +202,31 @@
 .contact-me__link:hover,
 .contact-me__link:focus-visible {
     padding-left: calc(var(--grid-cell) * 5);
+}
 
+.contact-me__link:hover {
     color: var(--color-surface);
     background: var(--color-text);
 }
 
-.contact-me__link:hover .contact-me__social-icon,
-.contact-me__link:focus-visible .contact-me__social-icon {
+.contact-me__link:focus {
+    outline: none;
+}
+
+.contact-me__link:focus-visible {
+    outline: none;
+    color: var(--color-text);
+    background: var(--color-bg);
+    box-shadow:
+            inset 0 0 0 2px var(--color-accent),
+            inset 0 0 0 4px var(--color-bg);
+}
+
+.contact-me__link:hover .contact-me__social-icon {
     color: var(--color-surface);
 }
 
-.contact-me__link:hover .contact-me__item-chevron,
-.contact-me__link:focus-visible .contact-me__item-chevron {
+.contact-me__link:hover .contact-me__item-chevron {
     color: var(--color-surface);
 }
 

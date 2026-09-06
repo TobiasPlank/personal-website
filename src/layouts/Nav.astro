@@ -1,6 +1,7 @@
 ---
 import "@/styles/nav.css";
 
+import Link from "@/components/ui/Link.astro";
 import ToggleTheme from "@/components/ui/ToggleTheme.astro";
 import ContactMe from "@/components/ui/ContactMe.astro";
 
@@ -17,11 +18,11 @@ const links = [
     <ul class="nav__list">
         {
             links.map((link) => (
-                <li>
-                    <a href={link.href}>
-                        <span>{link.label}</span>
-                    </a>
-                </li>
+                    <li>
+                        <Link href={link.href} variant="nav" class="nav__link">
+                            <span>{link.label}</span>
+                        </Link>
+                    </li>
             ))
         }
     </ul>

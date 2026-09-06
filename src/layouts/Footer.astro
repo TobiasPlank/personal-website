@@ -2,13 +2,14 @@
 import heartIcon from "pixelarticons/svg/heart.svg?url";
 import copyrightIcon from "pixelarticons/svg/copyright.svg?url";
 
+import Link from "@/components/ui/Link.astro";
 import "@/styles/footer.css";
 ---
 
 <footer class="footer">
     <nav class="footer__nav" aria-label="Footer navigation">
-        <a href="/imprint">Imprint</a>
-        <a href="/privacy_policy">Privacy Policy</a>
+        <Link href="/imprint" variant="ghost">Imprint</Link>
+        <Link href="/privacy_policy" variant="ghost">Privacy Policy</Link>
     </nav>
 
     <p class="footer__made-with">
